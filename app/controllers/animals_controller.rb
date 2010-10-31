@@ -1,5 +1,8 @@
 class AnimalsController < ApplicationController
   def new
+    unless current_user and current_user.admin
+      return render_forbidden
+    end
     @animal = Animal.new
     
     respond_to do |format|
@@ -18,10 +21,17 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find(params[:id])
+    if current_user and current_user.admin
+      @animal = Animal.find(params[:id])
+    else
+      return render_forbidden
+    end
   end
 
   def update
+    unless current_user and current_user.admin
+      return render_forbidden
+    end
     @animal = Animal.find(params[:id])
     respond_to do |format|
       if @animal.update_attributes(params[:animal])
@@ -35,6 +45,9 @@ class AnimalsController < ApplicationController
   end
 
   def create
+    unless current_user and current_user.admin
+      return render_forbidden
+    end
     @animal = Animal.new(params[:animal])
 
     respond_to do |format|

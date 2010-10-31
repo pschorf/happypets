@@ -9,7 +9,9 @@
       <td><%= animal.genus %></td>
       <td><%= animal.species %></td>
       <td><%= link_to "Show detail", animal %>
-      <td><%= link_to "Edit", edit_animal_path(animal)%> 
+      <% if current_user and current_user.admin %>
+        <td><%= link_to "Edit", edit_animal_path(animal)%> 
+      <% end %>
     </tr>
   <% end %>
 </table>

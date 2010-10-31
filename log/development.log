@@ -4617,3 +4617,481 @@ Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 10:37:03 -0500 2010
 Rendered pets/_pet.html.erb (45.2ms)
 Rendered animals/show.html.erb within layouts/application (67.0ms)
 Completed 200 OK in 152ms (Views: 69.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 10:38:31 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 2)) AS subquery
+  [1m[36mPet Load (0.3ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 2)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/_pet.html.erb (46.9ms)
+Rendered animals/show.html.erb within layouts/application (68.0ms)
+Completed 200 OK in 83ms (Views: 70.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 10:40:18 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAnimal Load (0.5ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 2)) AS subquery[0m
+  [1m[35mPet Load (0.3ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/_pet.html.erb (114.6ms)
+Rendered animals/show.html.erb within layouts/application (135.5ms)
+Completed 200 OK in 149ms (Views: 138.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 10:40:19 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 2)) AS subquery
+  [1m[36mPet Load (0.3ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 2)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/_pet.html.erb (116.0ms)
+Rendered animals/show.html.erb within layouts/application (136.7ms)
+Completed 200 OK in 150ms (Views: 139.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 10:40:19 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAnimal Load (0.5ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 2)) AS subquery[0m
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (17.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/_pet.html.erb (131.2ms)
+Rendered animals/show.html.erb within layouts/application (152.2ms)
+Completed 200 OK in 167ms (Views: 139.2ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 10:40:19 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAnimal Load (0.5ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 2)) AS subquery
+  [1m[36mPet Load (0.3ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 2)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/_pet.html.erb (50.4ms)
+Rendered animals/show.html.erb within layouts/application (143.0ms)
+Completed 200 OK in 160ms (Views: 146.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 10:40:20 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 2)) AS subquery[0m
+  [1m[35mPet Load (0.3ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/_pet.html.erb (47.5ms)
+Rendered animals/show.html.erb within layouts/application (139.2ms)
+Completed 200 OK in 153ms (Views: 141.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/animals/new" for 127.0.0.1 at Sun Oct 31 10:40:25 -0500 2010
+  Processing by AnimalsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered public/403.html within layouts/application (2.6ms)
+Completed   in 46ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/animals_controller.rb:8:in `new'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
+
+
+Started GET "/animals/new" for 127.0.0.1 at Sun Oct 31 10:40:40 -0500 2010
+  Processing by AnimalsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered public/403.html within layouts/application (2.7ms)
+Completed 403 Forbidden in 125ms (Views: 89.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/animals/new" for 127.0.0.1 at Sun Oct 31 10:40:57 -0500 2010
+  Processing by AnimalsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered public/403.html within layouts/application (2.9ms)
+Completed 403 Forbidden in 40ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:35:03 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[36mSQL (45.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/index.html.erb within layouts/application (132.6ms)
+Completed 200 OK in 252ms (Views: 144.5ms | ActiveRecord: 47.8ms)
+
+
+Started GET "/pets/3/edit" for 127.0.0.1 at Sun Oct 31 13:35:16 -0500 2010
+  Processing by PetsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 3) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (71.7ms)
+Rendered pets/edit.html.erb within layouts/application (84.3ms)
+Completed 200 OK in 142ms (Views: 98.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pets/2" for 127.0.0.1 at Sun Oct 31 13:35:25 -0500 2010
+  Processing by PetsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPet Load (0.3ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/show.html.erb within layouts/application (69.5ms)
+Completed 200 OK in 110ms (Views: 97.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/1/edit" for 127.0.0.1 at Sun Oct 31 13:35:33 -0500 2010
+
+ActionController::RoutingError (No route matches "/1/edit"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/pets/1/edit" for 127.0.0.1 at Sun Oct 31 13:35:42 -0500 2010
+  Processing by PetsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPet Load (0.7ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered public/403.html within layouts/application (2.6ms)
+Completed 403 Forbidden in 52ms (Views: 8.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sun Oct 31 13:35:50 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered public/403.html within layouts/application (2.4ms)
+Completed 403 Forbidden in 39ms (Views: 8.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/animals" for 127.0.0.1 at Sun Oct 31 13:36:02 -0500 2010
+  Processing by AnimalsController#index as HTML
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered animals/index.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 83ms (Views: 75.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/animals/2" for 127.0.0.1 at Sun Oct 31 13:36:05 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAnimal Load (0.3ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 2)) AS subquery[0m
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/_pet.html.erb (50.0ms)
+Rendered animals/show.html.erb within layouts/application (135.2ms)
+Completed 200 OK in 149ms (Views: 137.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/animals/1" for 127.0.0.1 at Sun Oct 31 13:36:08 -0500 2010
+  Processing by AnimalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAnimal Load (0.5ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.animal_id = 1)) AS subquery
+  [1m[36mPet Load (0.3ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.animal_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/_pet.html.erb (114.2ms)
+Rendered animals/show.html.erb within layouts/application (137.1ms)
+Completed 200 OK in 152ms (Views: 139.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Sun Oct 31 13:36:15 -0500 2010
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `pets` WHERE (`pets`.user_id = 2)) AS subquery
+  [1m[36mPet Load (0.3ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.user_id = 2)[0m
+  [1m[35mAnimal Load (0.2ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/_pet.html.erb (78.3ms)
+Rendered users/show.html.erb within layouts/application (94.6ms)
+Completed 200 OK in 149ms (Views: 107.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Sun Oct 31 13:36:23 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (6.2ms)
+Rendered users/edit.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 52ms (Views: 23.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sun Oct 31 13:36:25 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 98ms
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:36:25 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/index.html.erb within layouts/application (66.4ms)
+Completed 200 OK in 78ms (Views: 68.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sun Oct 31 13:36:30 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2176742440_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.3ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 82ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sun Oct 31 13:36:35 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 260ms
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:36:35 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.2ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/index.html.erb within layouts/application (64.8ms)
+Completed 200 OK in 137ms (Views: 66.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sun Oct 31 13:36:43 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 42ms (Views: 11.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at Sun Oct 31 13:36:46 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered users/_form.html.erb (6.0ms)
+Rendered users/edit.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 44ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sun Oct 31 13:36:52 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:36:52 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets`[0m
+  [1m[35mAnimal Load (0.7ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mAnimal Load (0.5ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/index.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 73ms (Views: 64.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sun Oct 31 13:36:55 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2175152120_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (2.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 28ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sun Oct 31 13:37:04 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"juser", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'juser') LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 27ms
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:37:04 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[36mPet Load (0.3ms)[0m  [1mSELECT `pets`.* FROM `pets`[0m
+  [1m[35mAnimal Load (0.5ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mAnimal Load (0.5ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/index.html.erb within layouts/application (131.6ms)
+Completed 200 OK in 143ms (Views: 133.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Sun Oct 31 13:37:17 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.7ms)
+Rendered users/edit.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 118ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to Pet (20101031183952)
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to Pet (20101031183952)
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to Pet (20101031183952)
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to Pet (20101031183952)
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `animals`[0m
+  [1m[35mSQL (0.9ms)[0m  SHOW KEYS FROM `animals`
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `pets`[0m
+  [1m[35mSQL (0.8ms)[0m  SHOW KEYS FROM `pets`
+  [1m[36mSQL (2.6ms)[0m  [1mdescribe `user_sessions`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW KEYS FROM `user_sessions`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `users`[0m
+  [1m[35mSQL (1.2ms)[0m  SHOW KEYS FROM `users`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to AddPetPersonailty (20101031184525)
+  [1m[35mSQL (110.0ms)[0m  ALTER TABLE `pets` ADD `personality` varchar(255)
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101031184525')
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (2.4ms)[0m  describe `animals`
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `animals`[0m
+  [1m[35mSQL (2.0ms)[0m  describe `pets`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `pets`[0m
+  [1m[35mSQL (2.0ms)[0m  describe `user_sessions`
+  [1m[36mSQL (0.9ms)[0m  [1mSHOW KEYS FROM `user_sessions`[0m
+  [1m[35mSQL (2.5ms)[0m  describe `users`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `users`[0m

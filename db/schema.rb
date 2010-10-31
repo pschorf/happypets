@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101031141239) do
+ActiveRecord::Schema.define(:version => 20101031184525) do
 
   create_table "animals", :force => true do |t|
     t.string   "genus"
@@ -20,13 +20,14 @@ ActiveRecord::Schema.define(:version => 20101031141239) do
   end
 
   create_table "pets", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",        :null => false
     t.string   "gender"
     t.integer  "age"
-    t.integer  "animal_id",  :null => false
-    t.integer  "user_id",    :null => false
+    t.integer  "animal_id",   :null => false
+    t.integer  "user_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "personality"
   end
 
   add_index "pets", ["animal_id"], :name => "fk_pets_animals"
