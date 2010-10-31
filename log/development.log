@@ -1,0 +1,1395 @@
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Sat Oct 30 14:13:58 -0500 2010
+
+NoMethodError (undefined method `init' for Mysql:Class):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.3ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Sat Oct 30 14:15:38 -0500 2010
+  Processing by Rails::InfoController#properties as */*
+  [1m[36mSQL (20.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (5.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Rendered inline template (0.5ms)
+Completed 200 OK in 280ms (Views: 2.0ms | ActiveRecord: 26.6ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (174.2ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (195.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (11.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+  [1m[35mSQL (183.2ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `name` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `address` varchar(255), `admin` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (14.3ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (7.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101030191330')
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (8.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.8ms)[0m  describe `users`
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `users`[0m
+
+
+Started GET "/usrs" for 127.0.0.1 at Sat Oct 30 14:20:32 -0500 2010
+
+ActionController::RoutingError (No route matches "/usrs"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Oct 30 14:20:36 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 250ms (Views: 10.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Sat Oct 30 14:20:39 -0500 2010
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (14.0ms)
+Rendered users/new.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 90ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sat Oct 30 14:20:52 -0500 2010
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓", "user"=>{"address"=>"1306 N Lincoln", "name"=>"Paul Schorfheide", "password_confirmation"=>"[FILTERED]", "admin"=>"1", "username"=>"pschorf", "password"=>"[FILTERED]", "email"=>"pschorf2@gmail.com"}}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (30.2ms)[0m  SELECT `users`.`id` FROM `users` WHERE (LOWER(`users`.`email`) = LOWER('pschorf2@gmail.com')) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (LOWER(`users`.`username`) = LOWER('pschorf')) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b907aa9243c2be2e2ac64721b330058212f08bdae93c353bfc24265e9cc4455489ebe975b97528a7fc0069a73576764ca39b3e17f2a99823167f33533c3c7638') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+Rendered users/_form.html.erb (8.3ms)
+Rendered users/new.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 780ms (Views: 66.4ms | ActiveRecord: 31.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sat Oct 30 14:21:01 -0500 2010
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓", "user"=>{"address"=>"1306 N Lincoln", "name"=>"Paul Schorfheide", "password_confirmation"=>"[FILTERED]", "admin"=>"1", "username"=>"pschorf", "password"=>"[FILTERED]", "email"=>"pschorf2@gmail.com"}}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mUser Load (9.8ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (LOWER(`users`.`email`) = LOWER('pschorf2@gmail.com')) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.`id` FROM `users` WHERE (LOWER(`users`.`username`) = LOWER('pschorf')) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`persistence_token` = BINARY '698919c600c48ccdcc5fb5d8c27402f011509c4a64d3d685cf4d3c45b961adfab81674b333350122da61f621ca138e73638f02233a2ea871e1b636c76fbfd286') LIMIT 1[0m
+  [1m[35mSQL (4.2ms)[0m  describe `users`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`address`, `admin`, `created_at`, `crypted_password`, `email`, `name`, `password_salt`, `persistence_token`, `updated_at`, `username`) VALUES ('1306 N Lincoln', 1, '2010-10-30 19:21:01', '66619feb74165fd98932b45fb41886c6c9aa4130a1e643f7abd3c4cf74b05e239482efa36357f7e8b8c067e00b36dda2d272fa8b1e16afb1650a85286d6bbec2', 'pschorf2@gmail.com', 'Paul Schorfheide', 'MUdLvf6nvqeakV2I8da', '698919c600c48ccdcc5fb5d8c27402f011509c4a64d3d685cf4d3c45b961adfab81674b333350122da61f621ca138e73638f02233a2ea871e1b636c76fbfd286', '2010-10-30 19:21:01', 'pschorf')[0m
+  [1m[35mSQL (18.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 69ms
+
+
+Started GET "/users/1" for 127.0.0.1 at Sat Oct 30 14:21:01 -0500 2010
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (10.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 108ms (Views: 35.8ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Oct 30 14:21:04 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (4.4ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 72ms (Views: 42.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Oct 30 14:35:47 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 137ms (Views: 30.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:35:53 -0500 2010
+
+ActionController::RoutingError (uninitialized constant SessionsController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:36:26 -0500 2010
+
+ActionController::RoutingError (uninitialized constant UsersessionsController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:36:31 -0500 2010
+  Processing by UserSessionsController#create as HTML
+Rendered user_sessions/new.html.erb within layouts/application (7.9ms)
+Completed   in 26ms
+
+ActionView::Template::Error (undefined method `title' for #<#<Class:0x103692f68>:0x103691280>):
+    1: <% title 'Login' %>
+    2: 
+    3: <% form_for @user_session do |f| %>
+    4:   <p>
+  app/views/user_sessions/new.html.erb:1:in `_app_views_user_sessions_new_html_erb__184892565_2176089300_0'
+  app/controllers/user_sessions_controller.rb:12:in `create'
+  app/controllers/user_sessions_controller.rb:7:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:38:17 -0500 2010
+  Processing by UserSessionsController#create as HTML
+Rendered user_sessions/_form.html.erb (6.2ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.7ms)
+Completed   in 27ms
+
+ActionView::Template::Error (undefined method `title' for #<#<Class:0x10342d570>:0x10342b888>):
+    1: <% title 'Login' %>
+    2: 
+    3: <% form_for @user_session do |f| %>
+    4:   <p>
+  app/views/user_sessions/_form.html.erb:1:in `_app_views_user_sessions__form_html_erb___1550601562_2174824200_1062910'
+  app/views/user_sessions/new.html.erb:1:in `_app_views_user_sessions_new_html_erb__184892565_2174832400_0'
+  app/controllers/user_sessions_controller.rb:12:in `create'
+  app/controllers/user_sessions_controller.rb:7:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:38:27 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2175891860_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.1ms)
+Rendered user_sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 24ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:38:34 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2175265080_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.2ms)
+Rendered user_sessions/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 313ms (Views: 12.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:38:43 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Completed   in 27ms
+
+NameError (undefined local variable or method `root_url' for #<UserSessionsController:0x103448e88>):
+  app/controllers/user_sessions_controller.rb:9:in `create'
+  app/controllers/user_sessions_controller.rb:7:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started GET "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:40:49 -0500 2010
+  Processing by UserSessionsController#index as HTML
+Rendered user_sessions/index.html.erb within layouts/application (0.6ms)
+Completed   in 5ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    7:     <th></th>
+    8:   </tr>
+    9: 
+    10: <% @user_sessions.each do |user_session| %>
+    11:   <tr>
+    12:     <td><%= link_to 'Show', user_session %></td>
+    13:     <td><%= link_to 'Edit', edit_user_session_path(user_session) %></td>
+  app/views/user_sessions/index.html.erb:10:in `_app_views_user_sessions_index_html_erb__1599008051_2174640580_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:40:54 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2173580400_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.3ms)
+Rendered user_sessions/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 28ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:41:00 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1[0m
+Completed   in 93ms
+
+NameError (undefined local variable or method `url' for #<UserSessionsController:0x103151888>):
+  app/controllers/user_sessions_controller.rb:9:in `create'
+  app/controllers/user_sessions_controller.rb:7:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:41:54 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2174295900_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (2.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 23ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:41:59 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Redirected to http://localhost:3000/root
+Completed 302 Found in 26ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:41:59 -0500 2010
+
+AbstractController::ActionNotFound (The action 'root' could not be found for UsersController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.6ms)
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:42:16 -0500 2010
+
+AbstractController::ActionNotFound (The action 'root' could not be found for UsersController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:43:09 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2176579980_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.0ms)
+Rendered user_sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 74ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:43:14 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Redirected to 
+Completed   in 230ms
+
+NoMethodError (undefined method `root_url' for #<UserSessionsController:0x103681e20>):
+  app/controllers/user_sessions_controller.rb:9:in `create'
+  app/controllers/user_sessions_controller.rb:7:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started GET "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:48:08 -0500 2010
+  Processing by UserSessionsController#index as HTML
+Rendered user_sessions/index.html.erb within layouts/application (3.2ms)
+Completed   in 10ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    7:     <th></th>
+    8:   </tr>
+    9: 
+    10: <% @user_sessions.each do |user_session| %>
+    11:   <tr>
+    12:     <td><%= link_to 'Show', user_session %></td>
+    13:     <td><%= link_to 'Edit', edit_user_session_path(user_session) %></td>
+  app/views/user_sessions/index.html.erb:10:in `_app_views_user_sessions_index_html_erb__1599008051_2173859560_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (86.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:48:14 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2174944140_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (2.8ms)
+Rendered user_sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 25ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:48:19 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1[0m
+Redirected to http://localhost:3000/root
+Completed 302 Found in 87ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:48:19 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 30ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:54:03 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2176669060_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.6ms)
+Rendered user_sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 95ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:55:06 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (17.0ms)
+Completed   in 37ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0x1033cd530>:0x1033cb550>):
+    8: </head>
+    9: <body>
+    10:   <div id="user_nav">
+    11:     <% if current_user %>
+    12:       <%= link_to "Edit Profile", edit_user_path(:current) %>
+    13:       <%= link_to "Logout", logout_url %>
+    14:     <% else %>
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__284029242_2174632520_0'
+  app/controllers/users_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (69.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (73.7ms)
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:57:37 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (16.0ms)
+Completed   in 34ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0x1034c5668>:0x1034be9f8>):
+    8: </head>
+    9: <body>
+    10:   <div id="user_nav">
+    11:     <% if current_user %>
+    12:       <%= link_to "Edit Profile", edit_user_path(:current) %>
+    13:       <%= link_to "Logout", logout_url %>
+    14:     <% else %>
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__284029242_2175094040_0'
+  app/controllers/users_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.9ms)
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:58:34 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (109.6ms)
+Completed   in 128ms
+
+ActionView::Template::Error (undefined local variable or method `logout_url' for #<#<Class:0x1031fd340>:0x1031fb6d0>):
+    10:   <div id="user_nav">
+    11:     <% if current_user %>
+    12:       <%= link_to "Edit Profile", edit_user_path(:current) %>
+    13:       <%= link_to "Logout", logout_url %>
+    14:     <% else %>
+    15:       <%= link_to "Register", new_user_path %>
+    16:       <%= link_to "Login", login_path %>
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__284029242_2173682980_0'
+  app/controllers/users_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:59:48 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered users/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 102ms (Views: 23.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 14:59:52 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Redirected to http://localhost:3000/root
+Completed 302 Found in 29ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:59:52 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 99ms (Views: 16.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 14:59:54 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2174422740_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.7ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 26ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 14:59:59 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Redirected to http://localhost:3000/root
+Completed 302 Found in 24ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 14:59:59 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 112ms (Views: 23.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Sat Oct 30 15:01:49 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/_form.html.erb (8.7ms)
+Rendered users/edit.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 358ms (Views: 327.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 15:01:55 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/root
+Completed 302 Found in 28ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 15:01:55 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 33ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Sat Oct 30 15:01:55 -0500 2010
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (80.2ms)
+Rendered users/new.html.erb within layouts/application (89.1ms)
+Completed 200 OK in 108ms (Views: 94.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sat Oct 30 15:02:17 -0500 2010
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓", "user"=>{"address"=>"123 Park Ave", "name"=>"John Q. User", "password_confirmation"=>"[FILTERED]", "admin"=>"0", "username"=>"juser", "password"=>"[FILTERED]", "email"=>"juser@example.com"}}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (LOWER(`users`.`email`) = LOWER('juser@example.com')) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (LOWER(`users`.`username`) = LOWER('juser')) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`persistence_token` = BINARY 'd17e140983c0680393a9b17b75e9be86adbf1aa3a50093566b7e6304f2c3f5c1f0b6f0c3d56b7c41afa2d4c0a5cbe51af2d659c4d700419b7569136abecfdc51') LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `users`[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`address`, `admin`, `created_at`, `crypted_password`, `email`, `name`, `password_salt`, `persistence_token`, `updated_at`, `username`) VALUES ('123 Park Ave', 0, '2010-10-30 20:02:17', '25a8b66e3d53ec46e08937caf0f0794d340150dbbef1c11659fed615e43c087f9b5b2223b8daeeafec237b24754aeabcb7e563309bbb96b45d85aa19122ab01e', 'juser@example.com', 'John Q. User', 'WJliDA5eBIprexrwDHHZ', 'd17e140983c0680393a9b17b75e9be86adbf1aa3a50093566b7e6304f2c3f5c1f0b6f0c3d56b7c41afa2d4c0a5cbe51af2d659c4d700419b7569136abecfdc51', '2010-10-30 20:02:17', 'juser')
+  [1m[36mSQL (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 43ms
+
+
+Started GET "/users/2" for 127.0.0.1 at Sat Oct 30 15:02:17 -0500 2010
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`persistence_token` = 'd17e140983c0680393a9b17b75e9be86adbf1aa3a50093566b7e6304f2c3f5c1f0b6f0c3d56b7c41afa2d4c0a5cbe51af2d659c4d700419b7569136abecfdc51') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`persistence_token` = 'd17e140983c0680393a9b17b75e9be86adbf1aa3a50093566b7e6304f2c3f5c1f0b6f0c3d56b7c41afa2d4c0a5cbe51af2d659c4d700419b7569136abecfdc51') LIMIT 1
+Rendered users/show.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 65ms (Views: 46.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Oct 30 15:02:19 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`persistence_token` = 'd17e140983c0680393a9b17b75e9be86adbf1aa3a50093566b7e6304f2c3f5c1f0b6f0c3d56b7c41afa2d4c0a5cbe51af2d659c4d700419b7569136abecfdc51') LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 40ms (Views: 25.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Sat Oct 30 15:02:22 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`persistence_token` = 'd17e140983c0680393a9b17b75e9be86adbf1aa3a50093566b7e6304f2c3f5c1f0b6f0c3d56b7c41afa2d4c0a5cbe51af2d659c4d700419b7569136abecfdc51') LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (71.4ms)
+Rendered users/edit.html.erb within layouts/application (76.3ms)
+Completed 200 OK in 108ms (Views: 80.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 15:02:24 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`persistence_token` = 'd17e140983c0680393a9b17b75e9be86adbf1aa3a50093566b7e6304f2c3f5c1f0b6f0c3d56b7c41afa2d4c0a5cbe51af2d659c4d700419b7569136abecfdc51') LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/root
+Completed 302 Found in 30ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 15:02:24 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 35ms (Views: 20.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 15:02:25 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2176762080_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.0ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 100ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 15:02:30 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1[0m
+Redirected to http://localhost:3000/root
+Completed 302 Found in 24ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 15:02:30 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered users/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 42ms (Views: 27.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 15:05:38 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Redirected to http://localhost:3000/root
+Completed 302 Found in 28ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 15:05:38 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 34ms (Views: 20.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Sat Oct 30 15:05:40 -0500 2010
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (10.7ms)
+Rendered users/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 106ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Sat Oct 30 15:06:10 -0500 2010
+
+ArgumentError (missing :controller):
+  config/routes.rb:6
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Sat Oct 30 15:06:23 -0500 2010
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (10.0ms)
+Rendered users/new.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 101ms (Views: 89.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 15:06:31 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2174767800_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.2ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 27ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 15:06:36 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Redirected to http://localhost:3000/root
+Completed 302 Found in 24ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 15:06:36 -0500 2010
+
+ActionController::RoutingError (wrong constant name Index.htmlController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (66.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Sat Oct 30 15:08:22 -0500 2010
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (10.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered users/new.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 43ms (Views: 30.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 15:08:24 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Redirected to 
+Completed   in 28ms
+
+ActionController::RoutingError (No route matches {:controller=>"index.html", :action=>"root"}):
+  app/controllers/user_sessions_controller.rb:25:in `destroy'
+  app/controllers/user_sessions_controller.rb:24:in `destroy'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 15:08:57 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2176541740_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.0ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered user_sessions/new.html.erb within layouts/application (48.8ms)
+Completed 200 OK in 116ms (Views: 51.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 15:09:02 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Redirected to 
+Completed   in 207ms
+
+NoMethodError (undefined method `root_url' for #<UserSessionsController:0x1034ddf88>):
+  app/controllers/user_sessions_controller.rb:9:in `create'
+  app/controllers/user_sessions_controller.rb:7:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 15:09:43 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2175304080_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered user_sessions/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 101ms (Views: 25.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Sat Oct 30 15:09:46 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered users/_form.html.erb (6.2ms)
+Rendered users/edit.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 42ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/1" for 127.0.0.1 at Sat Oct 30 15:09:48 -0500 2010
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓", "id"=>"1", "user"=>{"address"=>"1306 N Lincoln", "name"=>"Paul Schorfheide", "password_confirmation"=>"[FILTERED]", "admin"=>"1", "username"=>"pschorf", "password"=>"[FILTERED]", "email"=>"pschorf2@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 111ms
+
+
+Started GET "/root" for 127.0.0.1 at Sat Oct 30 15:09:53 -0500 2010
+
+ActionController::RoutingError (No route matches "/root"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 15:10:29 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 39ms (Views: 25.5ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:30:24 -0500 2010
+
+SyntaxError (/Users/pschorf/rails/happypets/app/controllers/users_controller.rb:84: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (50.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (55.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:30:46 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mUser Load (10.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered users/index.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 110ms (Views: 40.0ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:34:58 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 37ms (Views: 10.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:34:59 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 85ms (Views: 9.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 23:35:01 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:35:01 -0500 2010
+  Processing by UsersController#index as HTML
+Completed   in 69ms
+
+NoMethodError (undefined method `admin' for nil:NilClass):
+  app/controllers/users_controller.rb:5:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:35:17 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered text template (0.0ms)
+Completed 404 Not Found in 33ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:35:29 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered text template (0.0ms)
+Completed 404 Not Found in 15ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 23:35:36 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2173990220_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (55.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (60.5ms)
+Completed 200 OK in 102ms (Views: 85.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 23:35:42 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 173ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:35:42 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (21.8ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 120ms (Views: 10.0ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:35:45 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 41ms (Views: 9.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 23:35:47 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:35:47 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered text template (0.0ms)
+Completed 404 Not Found in 15ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:36:05 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered text template (0.0ms)
+Completed 403 Forbidden in 18ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:38:13 -0500 2010
+
+ArgumentError (missing :action):
+  config/routes.rb:6
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:39:20 -0500 2010
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:39:43 -0500 2010
+
+NameError (undefined local variable or method `login_url' for #<ActionDispatch::Routing::Mapper:0x10343ba08>):
+  config/routes.rb:6
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:39:49 -0500 2010
+
+NameError (undefined local variable or method `login' for #<ActionDispatch::Routing::Mapper:0x1033062a0>):
+  config/routes.rb:6
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:39:56 -0500 2010
+
+ArgumentError (missing :action):
+  config/routes.rb:6
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:40:06 -0500 2010
+
+ActionController::RoutingError (uninitialized constant LoginUrlController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:40:21 -0500 2010
+
+ArgumentError (missing :action):
+  config/routes.rb:6
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:40:56 -0500 2010
+  Processing by UsersController#index as HTML
+Completed   in 20ms
+
+ActionView::MissingTemplate (Missing template /403.html with {:locale=>[:en, :en], :formats=>[:html], :handlers=>[:rhtml, :rxml, :erb, :builder, :rjs]} in view paths "/Users/pschorf/rails/happypets/app/views", "/Users/pschorf/rails/happypets", "/"):
+  app/controllers/users_controller.rb:13:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:41:30 -0500 2010
+  Processing by UsersController#index as HTML
+Completed   in 87ms
+
+ActionView::MissingTemplate (Missing template /403.html with {:locale=>[:en, :en], :formats=>[:html], :handlers=>[:rhtml, :rxml, :erb, :builder, :rjs]} in view paths "/Users/pschorf/rails/happypets/app/views", "/Users/pschorf/rails/happypets", "/"):
+  app/controllers/users_controller.rb:13:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:42:14 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered public/403.html within layouts/application (2.5ms)
+Completed 403 Forbidden in 23ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 23:42:20 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2173820640_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.2ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 26ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 23:42:37 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2175438000_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (2.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 27ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 23:42:45 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:42:45 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 41ms (Views: 11.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at Sat Oct 30 23:42:50 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/_form.html.erb (6.2ms)
+Rendered users/edit.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 52ms (Views: 24.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at Sat Oct 30 23:42:55 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/_form.html.erb (6.0ms)
+Rendered users/edit.html.erb within layouts/application (75.1ms)
+Completed 200 OK in 107ms (Views: 79.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:42:58 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/_form.html.erb (5.7ms)
+Rendered users/edit.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 42ms (Views: 14.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:43:02 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered users/_form.html.erb (5.6ms)
+Rendered users/edit.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 52ms (Views: 14.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 23:43:14 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:43:14 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered public/403.html within layouts/application (2.8ms)
+Completed 403 Forbidden in 22ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 23:43:16 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2173748940_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (2.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 26ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 23:43:21 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"juser", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'juser') LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 97ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:43:21 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered public/403.html within layouts/application (2.8ms)
+Completed 403 Forbidden in 38ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 23:43:35 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 95ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:43:35 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered public/403.html within layouts/application (3.0ms)
+Completed 403 Forbidden in 25ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:46:03 -0500 2010
+
+SyntaxError (/Users/pschorf/rails/happypets/app/controllers/users_controller.rb:90: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:46:12 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered public/403.html within layouts/application (2.8ms)
+Completed 403 Forbidden in 24ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 23:46:15 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2175079660_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.0ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 26ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 23:47:08 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:47:08 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 111ms (Views: 82.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at Sat Oct 30 23:47:12 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (6.1ms)
+Rendered users/edit.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 42ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at Sat Oct 30 23:48:19 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered users/_form.html.erb (6.5ms)
+Rendered users/edit.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 114ms (Views: 15.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 23:48:24 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:48:24 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered public/403.html within layouts/application (2.6ms)
+Completed 403 Forbidden in 24ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 23:48:26 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2176682720_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (3.0ms)
+Rendered user_sessions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 96ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 23:48:31 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"juser", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'juser') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:48:31 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered public/403.html within layouts/application (2.6ms)
+Completed 403 Forbidden in 37ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Sat Oct 30 23:48:34 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (6.0ms)
+Rendered users/edit.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 42ms (Views: 14.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:48:43 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.6ms)
+Rendered users/edit.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 42ms (Views: 13.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:49:41 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.6ms)
+Rendered users/edit.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 113ms (Views: 13.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:51:28 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.5ms)
+Rendered users/edit.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 40ms (Views: 13.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:51:29 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.3ms)
+Rendered users/edit.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 41ms (Views: 13.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:53:02 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.8ms)
+Rendered users/edit.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 108ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Oct 30 23:53:03 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.2ms)
+Rendered users/edit.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 41ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/2" for 127.0.0.1 at Sat Oct 30 23:53:10 -0500 2010
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓", "id"=>"2", "user"=>{"address"=>"123 Park Ave", "name"=>"John Q. User", "password_confirmation"=>"[FILTERED]", "username"=>"juser", "password"=>"[FILTERED]", "email"=>"juser@example.org"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mUser Load (17.9ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (LOWER(`users`.`email`) = LOWER('juser@example.org')) AND (`users`.id <> 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `email` = 'juser@example.org', `updated_at` = '2010-10-31 04:53:10' WHERE (`users`.`id` = 2)
+  [1m[36mSQL (12.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 71ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:53:10 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered public/403.html within layouts/application (2.7ms)
+Completed 403 Forbidden in 36ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sat Oct 30 23:53:13 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:53:13 -0500 2010
+  Processing by UsersController#index as HTML
+Rendered public/403.html within layouts/application (2.6ms)
+Completed 403 Forbidden in 23ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Sat Oct 30 23:53:14 -0500 2010
+  Processing by UserSessionsController#create as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_sessions__form_html_erb___1550601562_2173528000_1062910 at /Users/pschorf/rails/happypets/app/views/user_sessions/_form.html.erb:1)
+Rendered user_sessions/_form.html.erb (2.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (75.0ms)
+Completed 200 OK in 93ms (Views: 79.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Oct 30 23:53:19 -0500 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"pschorf", "password"=>"[FILTERED]"}, "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (LOWER(`users`.username) = 'pschorf') LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:53:19 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 41ms (Views: 10.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at Sat Oct 30 23:53:22 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered users/_form.html.erb (6.1ms)
+Rendered users/edit.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 44ms (Views: 14.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/2" for 127.0.0.1 at Sat Oct 30 23:53:24 -0500 2010
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓", "id"=>"2", "user"=>{"address"=>"123 Park Ave", "name"=>"John Q. User", "password_confirmation"=>"[FILTERED]", "admin"=>"1", "username"=>"juser", "password"=>"[FILTERED]", "email"=>"juser@example.org"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `users` SET `admin` = 1, `updated_at` = '2010-10-31 04:53:24' WHERE (`users`.`id` = 2)[0m
+  [1m[35mSQL (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 53ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:53:24 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 111ms (Views: 9.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at Sat Oct 30 23:53:28 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered users/_form.html.erb (6.6ms)
+Rendered users/edit.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 43ms (Views: 15.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/2" for 127.0.0.1 at Sat Oct 30 23:53:31 -0500 2010
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"7x3thwjncyfSXVHLHbDQETanEZfG9+rekJp4YA2aeZA=", "utf8"=>"✓", "id"=>"2", "user"=>{"address"=>"123 Park Ave", "name"=>"John Q. User", "password_confirmation"=>"[FILTERED]", "admin"=>"0", "username"=>"juser", "password"=>"[FILTERED]", "email"=>"juser@example.org"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `admin` = 0, `updated_at` = '2010-10-31 04:53:31' WHERE (`users`.`id` = 2)[0m
+  [1m[35mSQL (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 106ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Oct 30 23:53:31 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 39ms (Views: 9.9ms | ActiveRecord: 0.8ms)
