@@ -1,0 +1,17 @@
+<h1>Animals</h1>
+<table>
+  <tr>
+    <th>Genus</th>
+    <th>Species</th>
+  </tr>
+  <% @animals.each do |animal| %>
+    <tr>
+      <td><%= animal.genus %></td>
+      <td><%= animal.species %></td>
+      <td><%= link_to "Show detail", animal %>
+      <td><%= link_to "Edit", edit_animal_path(animal)%> 
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "New", new_animal_path %>

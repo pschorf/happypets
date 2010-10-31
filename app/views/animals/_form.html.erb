@@ -1,0 +1,13 @@
+<%= form_for(@animal) do |f| %>
+  <div class = "field">
+    <%= f.label :genus %><br />
+    <%= f.text_field :genus%>
+  </div>
+  <div class="field">
+    <%= f.label :species %><br />
+    <%= f.text_field :species %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 Happypets::Application.routes.draw do
+  resources :animals
+
   resources :user_sessions
   
   resources :users

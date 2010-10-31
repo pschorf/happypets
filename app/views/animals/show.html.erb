@@ -1,0 +1,12 @@
+<h1>Animal#show</h1>
+<p>
+  <b>Genus:</b><br />
+  <%= @animal.genus %>
+</p>
+
+<p>
+  <b>Species:</b><br />
+  <%= @animal.species %>
+</p>
+
+<%= link_to "Edit", edit_animal_path(@animal)%> | <%= link_to "Back", animals_path %>
