@@ -30,6 +30,18 @@
     <%= f.label :animal %><br />
     <%= select(:pet, :animal_id, Animal.all.collect {|a| [a.genus + " " + a.species, a.id ]}) %>
   </div>
+  <div class="field">
+    <%= f.label :likes %><br />
+    <%= f.text_field :likes %>
+  </div>
+  <div class="field">
+    <%= f.label :dislikes %><br />
+    <%= f.text_field :dislikes %>
+  </div>
+  <div class="field">
+    <%= f.label :hobbies %><br />
+    <%= f.text_field :hobbies %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

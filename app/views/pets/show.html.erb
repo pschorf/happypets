@@ -28,6 +28,18 @@
   <%= @pet.user %>
 </p>
 
+<p>
+  <b>Likes:</b>
+  <%= @pet.likes %>
+</p>
+<p>
+  <b>Dislikes:</b>
+  <%= @pet.dislikes %>
+</p>  
+<p>
+    <b>Hobbies:</b>
+    <%= @pet.hobbies %>
+  </p>
 <% if @pet.user == current_user %>
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <% end %>

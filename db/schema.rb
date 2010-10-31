@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101031185356) do
+ActiveRecord::Schema.define(:version => 20101031194214) do
 
   create_table "animals", :force => true do |t|
     t.string   "genus"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20101031185356) do
   end
 
   create_table "interests", :force => true do |t|
-    t.string   "type"
+    t.string   "property"
     t.string   "thing"
     t.integer  "user_id"
     t.integer  "pet_id"
