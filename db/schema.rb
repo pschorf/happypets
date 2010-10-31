@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101031184525) do
+ActiveRecord::Schema.define(:version => 20101031185356) do
 
   create_table "animals", :force => true do |t|
     t.string   "genus"
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(:version => 20101031184525) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "interests", :force => true do |t|
+    t.string   "type"
+    t.string   "thing"
+    t.integer  "user_id"
+    t.integer  "pet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interests", ["pet_id"], :name => "fk_interests_pets"
+  add_index "interests", ["user_id"], :name => "fk_interests_users"
 
   create_table "pets", :force => true do |t|
     t.string   "name",        :null => false

@@ -5095,3 +5095,112 @@ Migrating to AddPetPersonailty (20101031184525)
   [1m[36mSQL (0.9ms)[0m  [1mSHOW KEYS FROM `user_sessions`[0m
   [1m[35mSQL (2.5ms)[0m  describe `users`
   [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `users`[0m
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Sun Oct 31 13:49:19 -0500 2010
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered users/_form.html.erb (5.2ms)
+Rendered users/edit.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 43ms (Views: 14.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sun Oct 31 13:49:22 -0500 2010
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered public/403.html within layouts/application (2.7ms)
+Completed 403 Forbidden in 38ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Sun Oct 31 13:49:25 -0500 2010
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:49:25 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.8ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/index.html.erb within layouts/application (124.2ms)
+Completed 200 OK in 136ms (Views: 126.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/pets/1" for 127.0.0.1 at Sun Oct 31 13:49:28 -0500 2010
+  Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 1) LIMIT 1[0m
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/show.html.erb within layouts/application (121.7ms)
+Completed 200 OK in 136ms (Views: 125.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:50:24 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+Rendered pets/_pet.html.erb (58.4ms)
+Rendered pets/index.html.erb within layouts/application (63.8ms)
+Completed 200 OK in 76ms (Views: 66.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Oct 31 13:50:35 -0500 2010
+  Processing by PetsController#index as HTML
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets`[0m
+  [1m[35mAnimal Load (0.5ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mAnimal Load (0.3ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendered pets/_pet.html.erb (54.6ms)
+Rendered pets/index.html.erb within layouts/application (58.4ms)
+Completed 200 OK in 71ms (Views: 60.4ms | ActiveRecord: 2.6ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to AddPetPersonailty (20101031184525)
+Migrating to CreateInterests (20101031185356)
+  [1m[35mSQL (346.7ms)[0m  CREATE TABLE `interests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255), `thing` varchar(255), `user_id` int(11), `pet_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (188.4ms)[0m  [1m ALTER TABLE interests ADD CONSTRAINT fk_interests_users
+ FOREIGN KEY(user_id)
+ REFERENCES users(id)
+[0m
+  [1m[35mSQL (95.1ms)[0m   ALTER TABLE interests ADD CONSTRAINT fk_interests_pets
+ FOREIGN KEY(pet_id)
+ REFERENCES pets(id)
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101031185356')
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.9ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.9ms)[0m  describe `animals`
+  [1m[36mSQL (1.1ms)[0m  [1mSHOW KEYS FROM `animals`[0m
+  [1m[35mSQL (1.7ms)[0m  describe `interests`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `interests`[0m
+  [1m[35mSQL (2.1ms)[0m  describe `pets`
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `pets`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `user_sessions`
+  [1m[36mSQL (0.9ms)[0m  [1mSHOW KEYS FROM `user_sessions`[0m
+  [1m[35mSQL (2.3ms)[0m  describe `users`
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW KEYS FROM `users`[0m

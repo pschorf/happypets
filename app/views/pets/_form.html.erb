@@ -24,6 +24,9 @@
     <%= f.text_field :age %>
   </div>
   <div class="field">
+    <%= f.label :personality %><br />
+    <%= f.text_field :personality %>
+  <div class="field">
     <%= f.label :animal %><br />
     <%= select(:pet, :animal_id, Animal.all.collect {|a| [a.genus + " " + a.species, a.id ]}) %>
   </div>
