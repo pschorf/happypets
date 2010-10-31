@@ -29,7 +29,19 @@
   <b>Admin:</b>
   <%= @user.admin %>
 </p>
-
-
+<h2>Pets</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Animal</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%= render :partial => 'pets/pet', :collection => @user.pets %>
+</table>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

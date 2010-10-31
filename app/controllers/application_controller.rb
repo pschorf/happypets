@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user  = current_user_session && current_user_session.record
   end
+  
+  def render_forbidden
+    render :file => File.join(Rails.root, 'public', '403.html'), :status => 403
+  end
 end

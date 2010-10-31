@@ -1,11 +1,13 @@
 Happypets::Application.routes.draw do
+  resources :pets
+
   resources :animals
 
   resources :user_sessions
   
   resources :users
   match 'login', :to => 'userSessions#create', :as => 'login'
-  root :to => "users#index"
+  root :to => "pets#index"
   match 'logout', :to => 'userSessions#destroy', :as => 'logout'
   # The priority is based upon order of creation:
   # first created -> highest priority.

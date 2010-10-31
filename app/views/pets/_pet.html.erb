@@ -1,0 +1,12 @@
+<tr>
+  <td><%= pet.name %></td>
+  <td><%= pet.gender %></td>
+  <td><%= pet.age %></td>
+  <td><%= pet.animal %></td>
+  <td><%= pet.user %></td>
+  <td><%= link_to 'Show', pet %></td>
+  <% if current_user == pet.user %>
+  <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+  <td><%= link_to 'Destroy', pet, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+</tr>

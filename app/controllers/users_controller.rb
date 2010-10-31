@@ -10,15 +10,18 @@ class UsersController < ApplicationController
         format.xml  { render :xml => @users }
       end
     else
-      render :file => File.join(Rails.root, 'public', '403.html'), :status => 403
+      render_forbidden
     end
   end
 
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = current_user
-
+    if current_user and current_user.admin
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }

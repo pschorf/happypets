@@ -8,5 +8,20 @@
   <b>Species:</b><br />
   <%= @animal.species %>
 </p>
-
-<%= link_to "Edit", edit_animal_path(@animal)%> | <%= link_to "Back", animals_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Animal</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%= render :partial => 'pets/pet', :collection => @animal.pets %>
+</table>
+<% if current_user and current_user.admin %>
+<%= link_to "Edit", edit_animal_path(@animal)%> | 
+<% end %>
+<%= link_to "Back", animals_path %>
