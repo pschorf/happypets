@@ -41,11 +41,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    unless current_user and current_user.admin
-      @user = current_user  
-    else
-      @user = User.find(params[:id])
-    end
+    @user = current_user
   end
 
   # POST /users
