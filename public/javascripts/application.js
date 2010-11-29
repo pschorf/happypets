@@ -66,6 +66,9 @@ function buildTable(pets) {
 		var gender = document.createElement('td');
 		gender.innerHTML = pet["gender"];
 		row.appendChild(gender);
+		var age = document.createElement('td');
+		age.innerHTML = pet['age'];
+		row.appendChild(age);
 		var personality = document.createElement('td');
 		personality.innerHTML = pet['personality'];
 		row.appendChild(personality);

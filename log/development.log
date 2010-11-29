@@ -14793,3 +14793,59 @@ Started GET "/?format=json&page=2" for 127.0.0.1 at Mon Nov 29 12:59:13 -0600 20
   [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
 Rendered pets/_pets.json.erb (128.1ms)
 Completed 200 OK in 164ms (Views: 151.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 29 14:49:54 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[36mSQL (1.1ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mPet Load (0.6ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mAnimal Load (0.5ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/_pet.html.erb (161.4ms)
+  [1m[36mPet Load (0.7ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.user_id = 1)[0m
+  [1m[35mNotification Load (0.5ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 4) AND (`notifications`.`read` = 0)
+  [1m[36mNotification Load (0.3ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 5) AND (`notifications`.`read` = 0)[0m
+  [1m[35mNotification Load (0.4ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 6) AND (`notifications`.`read` = 0)
+  [1m[36mNotification Load (0.2ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 7) AND (`notifications`.`read` = 0)[0m
+  [1m[35mNotification Load (0.2ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 8) AND (`notifications`.`read` = 0)
+  [1m[36mNotification Load (0.2ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 9) AND (`notifications`.`read` = 0)[0m
+  [1m[35mNotification Load (0.1ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 10) AND (`notifications`.`read` = 0)
+  [1m[36mNotification Load (0.1ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 11) AND (`notifications`.`read` = 0)[0m
+  [1m[35mNotification Load (0.1ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 12) AND (`notifications`.`read` = 0)
+  [1m[36mNotification Load (0.1ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (`notifications`.`destination_id` = 13) AND (`notifications`.`read` = 0)[0m
+Rendered pets/index.html.erb within layouts/application (202.9ms)
+Completed 200 OK in 257ms (Views: 202.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/?format=json&page=2" for 127.0.0.1 at Mon Nov 29 14:49:57 -0600 2010
+  Processing by PetsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[35mPet Load (0.6ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/_pets.json.erb (56.6ms)
+Completed 200 OK in 71ms (Views: 58.7ms | ActiveRecord: 1.3ms)
