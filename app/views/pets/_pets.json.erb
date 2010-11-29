@@ -1,0 +1,19 @@
+{ "pets" : [
+<% for pet in @pets %>
+  {
+    "name"        : "<%= pet.name %>",
+    "gender"      : "<%= pet.gender %>",
+    "age"         : <%= pet.age %>,
+    "personality" : "<%= pet.personality %>",
+    "animal"      : "<%= pet.animal %>",
+    "user"        : "<%= pet.user %>",
+    "links"       : [
+      { "text"    : "Show", "url" : "<%= pet_path(pet) %>" }
+        <% if current_user == pet.user %>
+        , {"text" : "Edit", "url" : "<%= edit_pet_path(pet) %>"}, {"text" : "Destroy", "url" : "<%= pet_path(pet) %>", "method" : "delete"}
+        <% end %>
+    ]
+  }<% if pet != @pets.last %>,<% end %>
+<% end %>
+
+] }
