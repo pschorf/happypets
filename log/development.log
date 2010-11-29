@@ -11265,3 +11265,79 @@ Started GET "/?format=json&page=1" for 127.0.0.1 at Mon Nov 29 09:17:07 -0600 20
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
 Rendered pets/_pets.json.erb (125.7ms)
 Completed 200 OK in 138ms (Views: 127.1ms | ActiveRecord: 2.0ms)
+  [1m[36mSQL (44.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to AddPetPersonailty (20101031184525)
+Migrating to CreateInterests (20101031185356)
+Migrating to RenameInterestType (20101031194214)
+Migrating to CreateNotifications (20101129155949)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to AddPetPersonailty (20101031184525)
+Migrating to CreateInterests (20101031185356)
+Migrating to RenameInterestType (20101031194214)
+Migrating to CreateNotifications (20101129155949)
+  [1m[35mSQL (91.7ms)[0m  CREATE TABLE `notifications` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `contents` text, `source_id` int(11), `destination_id` int(11), `time` datetime, `read` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101129155949')
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.2ms)[0m  describe `animals`
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `animals`[0m
+  [1m[35mSQL (1.2ms)[0m  describe `interests`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `interests`[0m
+  [1m[35mSQL (1.1ms)[0m  describe `notifications`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `notifications`[0m
+  [1m[35mSQL (1.1ms)[0m  describe `pets`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW KEYS FROM `pets`[0m
+  [1m[35mSQL (1.1ms)[0m  describe `user_sessions`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `user_sessions`[0m
+  [1m[35mSQL (2.0ms)[0m  describe `users`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `users`[0m
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20101030191330)
+Migrating to CreateUserSessions (20101030192538)
+Migrating to CreateAnimals (20101031050415)
+Migrating to CreatePets (20101031141239)
+Migrating to AddPetPersonailty (20101031184525)
+Migrating to CreateInterests (20101031185356)
+Migrating to RenameInterestType (20101031194214)
+Migrating to CreateNotifications (20101129155949)
+Migrating to Notification (20101129161050)
+  [1m[35mSQL (86.5ms)[0m   ALTER TABLE notifications ADD CONSTRAINT fk_notifications_source
+ FOREIGN KEY(source_id)
+ REFERENCES pets(id)
+  [1m[36mSQL (155.9ms)[0m  [1m ALTER TABLE notifications ADD CONSTRAINT fk_notifications_dest
+ FOREIGN KEY(destination_id)
+ REFERENCES pets(id)
+[0m
+  [1m[35mSQL (1.8ms)[0m  describe `schema_migrations`
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20101129161050')[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `animals`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW KEYS FROM `animals`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `interests`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW KEYS FROM `interests`
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `notifications`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW KEYS FROM `notifications`
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `pets`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `pets`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `user_sessions`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW KEYS FROM `user_sessions`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `users`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW KEYS FROM `users`

@@ -2,8 +2,8 @@ class CreateNotifications < ActiveRecord::Migration
   def self.up
     create_table :notifications do |t|
       t.text :contents
-      t.Pet :source
-      t.Pet :destination
+      t.belongs_to :source
+      t.belongs_to :destination
       t.timestamp :time
       t.boolean :read
 

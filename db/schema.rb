@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101031194214) do
+ActiveRecord::Schema.define(:version => 20101129161050) do
 
   create_table "animals", :force => true do |t|
     t.string   "genus"
@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(:version => 20101031194214) do
 
   add_index "interests", ["pet_id"], :name => "fk_interests_pets"
   add_index "interests", ["user_id"], :name => "fk_interests_users"
+
+  create_table "notifications", :force => true do |t|
+    t.text     "contents"
+    t.integer  "source_id"
+    t.integer  "destination_id"
+    t.datetime "time"
+    t.boolean  "read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["destination_id"], :name => "fk_notifications_dest"
+  add_index "notifications", ["source_id"], :name => "fk_notifications_source"
 
   create_table "pets", :force => true do |t|
     t.string   "name",        :null => false

@@ -2,6 +2,7 @@ class Pet < ActiveRecord::Base
   belongs_to :animal
   belongs_to :user
   has_many :interests, :dependent => :destroy
+  has_many :notifications, :dependent => :destroy
   validates_inclusion_of :gender, :in => ["Male", "Female"]
   def likes
     return ((self.interests.select {|i| i.property == 'like'}).map {|i| i.to_s }).join ' '
