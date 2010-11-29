@@ -2,11 +2,22 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.xml
   def index
+    @page_num = 1
+    if params[:page]
+      @page_num = Integer(params[:page])
+    end
     @pets = Pet.all
-
+    @pages = @pets.size/10 + 1
+    @pets = @pets[(@page_num-1)*10..@page_num*10-1]
+    if @pets == nil
+      #head :status => 204
+      head :bad_request
+      return
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @pets }
+      format.json { render :template => 'pets/_pets.json.erb', :content_type => 'application/json' }
     end
   end
 

@@ -1,6 +1,7 @@
 <h1>Listing pets</h1>
 
-<table>
+<table id="pet_table">
+  <thead>
   <tr>
     <th>Name</th>
     <th>Gender</th>
@@ -12,9 +13,25 @@
     <th></th>
     <th></th>
   </tr>
+  </thead>
+  <tbody id="pet_table_body">
   <%= render :partial => 'pets/pet', :collection => @pets %>
+  </tbody>
 </table>
 
+ <a id="back_button" href="javascript:load_page(<%= @page_num - 1 %>);"
+   <% if @page_num == 1 %>
+   style="display : none;"
+   <% end %>>&lt;</a>
+
+ <a id="forward_button" href="javascript:load_page(<%= @page_num + 1 %>);"
+   <% if @page_num == @pages %>
+   style="display: none;"
+   <% end %>>&gt;</a>
 <br />
 
 <%= link_to 'New Pet', new_pet_path %>
+
+<div id="num_pages" style="display: none;">
+  <%= @pages %>
+</div>
