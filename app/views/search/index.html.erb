@@ -1,0 +1,7 @@
+<h1>Search Results</h1>
+<%= @query %>
+<ul>
+  <% for pet in @pets %>
+    <li><a href="<%= pet_path(pet.id) %>"><%= pet.name %></a></li>
+  <% end %>
+</ul>

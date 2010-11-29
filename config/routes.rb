@@ -7,6 +7,7 @@ Happypets::Application.routes.draw do
   
   resources :users
   match 'login', :to => 'userSessions#create', :as => 'login'
+  match 'search', :to => 'search#index'
   root :to => "pets#index"
   match 'logout', :to => 'userSessions#destroy', :as => 'logout'
   # The priority is based upon order of creation:

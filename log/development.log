@@ -7416,3 +7416,506 @@ ActionController::RoutingError (No route matches "/search"):
   
 
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/search" for 127.0.0.1 at Sun Nov 28 17:36:47 -0600 2010
+  Processing by SearchController#index as HTML
+Completed   in 2ms
+
+NameError (uninitialized constant SearchController::Pets):
+  app/controllers/search_controller.rb:5:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.8ms)
+
+
+Started GET "/search" for 127.0.0.1 at Sun Nov 28 17:37:01 -0600 2010
+  Processing by SearchController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE %NULL%)
+Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%NULL%)' at line 1: SELECT     `pets`.* FROM       `pets`  WHERE     (name LIKE %NULL%)
+Rendered search/index.html.erb within layouts/application (3.7ms)
+Completed   in 110ms
+
+ActionView::Template::Error (Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%NULL%)' at line 1: SELECT     `pets`.* FROM       `pets`  WHERE     (name LIKE %NULL%)):
+    1: <h1>Search Results</h1>
+    2: <ul>
+    3:   <% for pet in @pets %>
+    4:     <li><a href="pet_path(pet.id)"><%= pet.name %></a></li>
+    5:   <% end %>
+    6: </ul>
+  app/views/search/index.html.erb:3:in `_app_views_search_index_html_erb___354513536_2174729980_0'
+  app/controllers/search_controller.rb:6:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  [1m[36mPet Load (0.2ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE %NULL%)[0m
+Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%NULL%)' at line 1: SELECT     `pets`.* FROM       `pets`  WHERE     (name LIKE %NULL%)
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE %NULL%)
+Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%NULL%)' at line 1: SELECT     `pets`.* FROM       `pets`  WHERE     (name LIKE %NULL%)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (63.3ms)
+
+
+Started GET "/search" for 127.0.0.1 at Sun Nov 28 17:37:14 -0600 2010
+  Processing by SearchController#index as HTML
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%NULL%")[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered search/index.html.erb within layouts/application (43.9ms)
+Completed 200 OK in 56ms (Views: 47.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/search?query=duke" for 127.0.0.1 at Sun Nov 28 17:37:25 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"duke"}
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%'duke'%")
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered search/index.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 52ms (Views: 42.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search?query=duke" for 127.0.0.1 at Sun Nov 28 17:37:49 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"duke"}
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%'duke'%")[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered search/index.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 52ms (Views: 42.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Nov 28 17:38:19 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/_pet.html.erb (74.7ms)
+Rendered pets/index.html.erb within layouts/application (92.6ms)
+Completed 200 OK in 124ms (Views: 112.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 17:38:48 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%'Duke'%")[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered search/index.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 51ms (Views: 41.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 17:40:30 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[35mPet Load (0.6ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered search/index.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 109ms (Views: 47.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pet_path(pet.id)" for 127.0.0.1 at Sun Nov 28 17:40:34 -0600 2010
+
+ActionController::RoutingError (No route matches "/pet_path(pet.id)"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 17:44:51 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered search/index.html.erb within layouts/application (43.8ms)
+Completed 200 OK in 56ms (Views: 47.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 17:44:53 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered search/index.html.erb within layouts/application (44.1ms)
+Completed 200 OK in 56ms (Views: 47.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 17:44:54 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered search/index.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 111ms (Views: 49.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 17:44:55 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered search/index.html.erb within layouts/application (98.8ms)
+Completed 200 OK in 111ms (Views: 102.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 17:45:07 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered search/index.html.erb within layouts/application (96.3ms)
+Completed 200 OK in 109ms (Views: 99.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pets/4" for 127.0.0.1 at Sun Nov 28 17:45:09 -0600 2010
+  Processing by PetsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 4) LIMIT 1
+  [1m[36mAnimal Load (0.5ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mInterest Load (0.7ms)[0m  [1mSELECT `interests`.* FROM `interests` WHERE (`interests`.pet_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/show.html.erb within layouts/application (140.2ms)
+Completed 200 OK in 178ms (Views: 164.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/search?query=u" for 127.0.0.1 at Sun Nov 28 17:45:25 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"u"}
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%u%")
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered search/index.html.erb within layouts/application (99.5ms)
+Completed 200 OK in 112ms (Views: 103.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?query=Du" for 127.0.0.1 at Sun Nov 28 17:45:36 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Du"}
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%Du%")[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered search/index.html.erb within layouts/application (93.7ms)
+Completed 200 OK in 106ms (Views: 97.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?query=Du" for 127.0.0.1 at Sun Nov 28 17:45:39 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Du"}
+  [1m[35mPet Load (0.8ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%Du%")
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered search/index.html.erb within layouts/application (117.0ms)
+Completed 200 OK in 136ms (Views: 121.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Nov 28 17:45:49 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets`[0m
+  [1m[35mAnimal Load (0.6ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/_pet.html.erb (128.3ms)
+Rendered pets/index.html.erb within layouts/application (131.9ms)
+Completed 200 OK in 146ms (Views: 134.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 17:49:54 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (33.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (130.3ms)
+Completed 200 OK in 173ms (Views: 162.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:00:52 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (87.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 140ms (Views: 128.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:02 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (34.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (122.0ms)
+Completed 200 OK in 136ms (Views: 124.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:09 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (82.6ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (120.9ms)
+Completed 200 OK in 136ms (Views: 124.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:11 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (35.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (130.2ms)
+Completed 200 OK in 144ms (Views: 133.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:16 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (33.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (127.7ms)
+Completed 200 OK in 141ms (Views: 131.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:17 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (90.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (132.4ms)
+Completed 200 OK in 147ms (Views: 136.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:17 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (93.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (131.6ms)
+Completed 200 OK in 146ms (Views: 134.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:29 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (34.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (128.1ms)
+Completed 200 OK in 142ms (Views: 131.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:30 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (38.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (127.2ms)
+Completed 200 OK in 202ms (Views: 189.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:01:30 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.5ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (86.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (127.5ms)
+Completed 200 OK in 141ms (Views: 130.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:02:16 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (34.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (120.0ms)
+Completed 200 OK in 202ms (Views: 123.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:02:17 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (90.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (132.1ms)
+Completed 200 OK in 146ms (Views: 135.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:02:17 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (36.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (122.9ms)
+Completed 200 OK in 137ms (Views: 126.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:02:42 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (94.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (132.3ms)
+Completed 200 OK in 147ms (Views: 136.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:03:10 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (35.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (130.4ms)
+Completed 200 OK in 147ms (Views: 134.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:03:12 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals`
+Rendered pets/_form.html.erb (90.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/new.html.erb within layouts/application (129.0ms)
+Completed 200 OK in 143ms (Views: 132.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pets/new" for 127.0.0.1 at Sun Nov 28 18:04:44 -0600 2010
+  Processing by PetsController#new as HTML
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals`[0m
+Rendered pets/_form.html.erb (95.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/new.html.erb within layouts/application (133.6ms)
+Completed 200 OK in 147ms (Views: 137.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Nov 28 18:05:23 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (1.9ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/_pet.html.erb (185.1ms)
+Rendered pets/index.html.erb within layouts/application (188.9ms)
+Completed 200 OK in 259ms (Views: 189.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/search?query=undefined" for 127.0.0.1 at Sun Nov 28 18:06:04 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"undefined"}
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%undefined%")[0m
+Rendered search/index.html.erb within layouts/application (128.7ms)
+Completed 200 OK in 141ms (Views: 132.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Nov 28 18:06:33 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.3ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (15.6ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (9.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.4ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/_pet.html.erb (184.7ms)
+Rendered pets/index.html.erb within layouts/application (188.6ms)
+Completed 200 OK in 203ms (Views: 167.4ms | ActiveRecord: 26.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Nov 28 18:06:45 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[36mPet Load (0.3ms)[0m  [1mSELECT `pets`.* FROM `pets`[0m
+  [1m[35mAnimal Load (0.2ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (11.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mAnimal Load (0.4ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/_pet.html.erb (134.6ms)
+Rendered pets/index.html.erb within layouts/application (138.3ms)
+Completed 200 OK in 153ms (Views: 130.2ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Nov 28 18:07:33 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (5.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/_pet.html.erb (223.0ms)
+Rendered pets/index.html.erb within layouts/application (227.2ms)
+Completed 200 OK in 321ms (Views: 226.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/search?query=undefined" for 127.0.0.1 at Sun Nov 28 18:07:34 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"undefined"}
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%undefined%")[0m
+Rendered search/index.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 44ms (Views: 34.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Nov 28 18:07:38 -0600 2010
+  Processing by PetsController#index as HTML
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets`
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (11.6ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.3ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+Rendered pets/_pet.html.erb (118.5ms)
+Rendered pets/index.html.erb within layouts/application (123.0ms)
+Completed 200 OK in 138ms (Views: 114.7ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/search?query=u" for 127.0.0.1 at Sun Nov 28 18:07:42 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"u"}
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (name LIKE "%u%")[0m
+Rendered search/index.html.erb within layouts/application (68.7ms)
+Completed 200 OK in 87ms (Views: 72.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 18:07:47 -0600 2010
+  Processing by SearchController#index as HTML
+  Parameters: {"query"=>"Duke"}
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")
+Rendered search/index.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 63ms (Views: 53.3ms | ActiveRecord: 0.4ms)
