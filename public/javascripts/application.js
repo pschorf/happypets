@@ -5,3 +5,8 @@ function search() {
 	var box = document.getElementById('searchbox');
 	window.location = '/search?query=' + box.value;
 }
+
+//This function takes in 
+function recommend() {
+	window.location = '/recommend';
+}
