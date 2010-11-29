@@ -40,6 +40,10 @@
     <b>Hobbies:</b>
     <%= @pet.hobbies %>
   </p>
+<% if @pet.user != current_user %>  
+<%= link_to 'Bark At ' + @pet.name, new_notification_path(:destination => @pet.id) %>
+<% end %>
+<br />
 <% if @pet.user == current_user %>
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <% end %>

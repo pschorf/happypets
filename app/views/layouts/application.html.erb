@@ -15,6 +15,8 @@
       <%= link_to "Logout", logout_url %>
       <% if current_user.unread_notifications.size > 0 %>
         <%= link_to 'Unread Notifications', '/notifications' %>
+      <% else %>
+        <%= link_to 'Notifications', '/notifications' %>
       <% end %>
     <% else %>
       <%= link_to "Register", new_user_path %>

@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :destination %><br />
-    <%= collection_select(:notification, :destination_id, Pet.where('user_id <> ?', current_user.id), :id, :name) %>
+    <%= collection_select(:notification, :destination_id, Pet.where('user_id <> ?', current_user.id), :id, :name, :selected => params[:destination]) %>
   </div>
   <div class="actions">
     <%= f.submit %>
