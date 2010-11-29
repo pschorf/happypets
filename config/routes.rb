@@ -1,4 +1,6 @@
 Happypets::Application.routes.draw do
+  resources :notifications
+
   resources :pets
 
   resources :animals

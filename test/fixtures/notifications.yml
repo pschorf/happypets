@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contents: MyText
+  source: 
+  destination: 
+  time: 2010-11-29 09:59:49
+  read: false
+
+two:
+  contents: MyText
+  source: 
+  destination: 
+  time: 2010-11-29 09:59:49
+  read: false
