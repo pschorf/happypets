@@ -22,8 +22,8 @@
       <%= link_to "Register", new_user_path %>
       <%= link_to "Login", login_path %>
     <% end %>
-    <input type="text" id="searchbox" />
-    <input type="button" value="Search" onclick="search();" />
+    <input type="text" id="searchbox" onkeydown="if (event.keyCode == 13) document.getElementById('searchBtn').click()" />
+    <input type="button" value="Search" onclick="search();" id="searchBtn" />
     <% if current_user %>
       <input type="button" value="Recommend" onclick="recommend();" align="right" />
     <% end %>
