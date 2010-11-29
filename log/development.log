@@ -7919,3 +7919,243 @@ Started GET "/search?query=Duke" for 127.0.0.1 at Sun Nov 28 18:07:47 -0600 2010
   [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` WHERE (name LIKE "%Duke%")
 Rendered search/index.html.erb within layouts/application (47.6ms)
 Completed 200 OK in 63ms (Views: 53.3ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (9.1ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 1) LIMIT 1
+  [1m[36mPet Load (0.7ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 2) LIMIT 1[0m
+  [1m[35mAnimal Load (0.3ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id`[0m
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis')
+  [1m[36mPet Load (0.7ms)[0m  [1mSELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (`pets`.`genus` = 'Canis')[0m
+Mysql2::Error: Unknown column 'pets.genus' in 'where clause': SELECT     `pets`.* FROM       `pets`  INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE     (`pets`.`genus` = 'Canis')
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (`pets`.`genus` = 'Canis')
+Mysql2::Error: Unknown column 'pets.genus' in 'where clause': SELECT     `pets`.* FROM       `pets`  INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE     (`pets`.`genus` = 'Canis')
+  [1m[36mPet Load (0.9ms)[0m  [1mSELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis')[0m
+  [1m[35mPet Load (0.9ms)[0m  SELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets` INNER JOIN `users` ON `users`.`id` = `pets`.`user_id`
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` INNER JOIN `users` ON `users`.`id` = `pets`.`user_id` WHERE (user.id <> 2)[0m
+Mysql2::Error: Unknown column 'user.id' in 'where clause': SELECT     `pets`.* FROM       `pets`  INNER JOIN `users` ON `users`.`id` = `pets`.`user_id` WHERE     (user.id <> 2)
+  [1m[35mPet Load (0.6ms)[0m  SELECT `pets`.* FROM `pets` INNER JOIN `users` ON `users`.`id` = `pets`.`user_id` WHERE (user_id <> 2)
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` INNER JOIN `users` ON `users`.`id` = `pets`.`user_id` WHERE (user_id <> 1)[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `users` ON `users`.`id` = `pets`.`user_id` WHERE (user_id <> 1)
+  [1m[36mPet Load (0.5ms)[0m  [1mSELECT `pets`.* FROM `pets` INNER JOIN `users` ON `users`.`id` = `pets`.`user_id` WHERE (user_id <> 1)[0m
+
+
+Started GET "/recommend" for 127.0.0.1 at Sun Nov 28 18:47:51 -0600 2010
+  Processing by RecommendController#index as HTML
+  [1m[36mSQL (37.1ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.user_id = 1)
+  [1m[36mAnimal Load (0.2ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male') AND (`pets`.`age` BETWEEN 10 AND 0) AND (`pets`.`personality` = 'Silly')[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male') AND (`pets`.`age` BETWEEN 10 AND 0)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male')[0m
+  [1m[35mPet Load (0.4ms)[0m  SELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1)
+ERROR: compiling _app_views_recommend_index_html_erb___1801067232_2176086040_0 RAISED compile error
+/Users/pschorf/rails/happypets/app/views/recommend/index.html.erb:4: syntax error, unexpected tSTRING_BEG, expecting ')'
+... ( pet_path(@matches[pet].id)"><%= @matches[pet].name );@out...
+                              ^
+/Users/pschorf/rails/happypets/app/views/recommend/index.html.erb:4: unterminated string meets end of file
+/Users/pschorf/rails/happypets/app/views/recommend/index.html.erb:4: syntax error, unexpected $end, expecting ')'
+Function body:           def _app_views_recommend_index_html_erb___1801067232_2176086040_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "recommend/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Recommendations</h1>
+<ul>
+');   for pet in @matches.keys 
+@output_buffer.safe_concat('    <li>We recommend <a href="');@output_buffer.append= ( pet_path(@matches[pet].id)"><%= @matches[pet].name );@output_buffer.safe_concat('</a> for <a href="');@output_buffer.append= ( pet_path(pet.id) );@output_buffer.safe_concat('">');@output_buffer.append= ( pet.name );@output_buffer.safe_concat('</a> 
+');   end 
+@output_buffer.safe_concat('</ul>');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/pschorf/rails/happypets/app/views/recommend/index.html.erb:4:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/render/rendering.rb:59:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/Users/pschorf/rails/happypets/app/controllers/recommend_controller.rb:13:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/base.rb:150:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:440:in `_run__1236726537__process_action__199225275__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/base.rb:119:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal.rb:133:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal.rb:173:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/cookies.rb:287:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered recommend/index.html.erb within layouts/application (23.0ms)
+Completed   in 298ms
+
+ActionView::Template::Error (compile error
+/Users/pschorf/rails/happypets/app/views/recommend/index.html.erb:4: syntax error, unexpected tSTRING_BEG, expecting ')'
+... ( pet_path(@matches[pet].id)"><%= @matches[pet].name );@out...
+                              ^
+/Users/pschorf/rails/happypets/app/views/recommend/index.html.erb:4: unterminated string meets end of file
+/Users/pschorf/rails/happypets/app/views/recommend/index.html.erb:4: syntax error, unexpected $end, expecting ')'):
+    1: <h1>Recommendations</h1>
+    2: <ul>
+    3:   <% for pet in @matches.keys %>
+    4:     <li>We recommend <a href="<%= pet_path(@matches[pet].id)"><%= @matches[pet].name %></a> for <a href="<%= pet_path(pet.id) %>"><%= pet.name %></a> 
+    5:   <% end %>
+    6: </ul>
+  app/views/recommend/index.html.erb:4:in `compile'
+  app/controllers/recommend_controller.rb:13:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.8ms)
+
+
+Started GET "/recommend" for 127.0.0.1 at Sun Nov 28 18:48:34 -0600 2010
+  Processing by RecommendController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` WHERE (`pets`.user_id = 1)[0m
+  [1m[35mAnimal Load (0.8ms)[0m  SELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male') AND (`pets`.`age` BETWEEN 10 AND 0) AND (`pets`.`personality` = 'Silly')
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male') AND (`pets`.`age` BETWEEN 10 AND 0)[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male')
+  [1m[36mPet Load (0.4ms)[0m  [1mSELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1)[0m
+Rendered recommend/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 211ms (Views: 8.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/pets/2" for 127.0.0.1 at Sun Nov 28 18:48:44 -0600 2010
+  Processing by PetsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPet Load (0.3ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.`id` = 2) LIMIT 1
+  [1m[36mAnimal Load (0.2ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mInterest Load (0.5ms)[0m  [1mSELECT `interests`.* FROM `interests` WHERE (`interests`.pet_id = 2)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered pets/show.html.erb within layouts/application (68.2ms)
+Completed 200 OK in 135ms (Views: 70.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/images" for 127.0.0.1 at Sun Nov 28 18:50:07 -0600 2010
+
+ActionController::RoutingError (No route matches "/images"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/public/images" for 127.0.0.1 at Sun Nov 28 18:50:13 -0600 2010
+
+ActionController::RoutingError (No route matches "/public/images"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/recommend" for 127.0.0.1 at Sun Nov 28 18:52:47 -0600 2010
+  Processing by RecommendController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets` WHERE (`pets`.user_id = 1)
+  [1m[36mAnimal Load (0.7ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE (`animals`.`id` = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male') AND (`pets`.`age` BETWEEN 10 AND 0) AND (`pets`.`personality` = 'Silly')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male') AND (`pets`.`age` BETWEEN 10 AND 0)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1) AND (gender <> 'Male')[0m
+  [1m[35mPet Load (0.5ms)[0m  SELECT `pets`.* FROM `pets` INNER JOIN `animals` ON `animals`.`id` = `pets`.`animal_id` WHERE (genus = 'Canis') AND (user_id <> 1)
+Rendered recommend/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 144ms (Views: 9.1ms | ActiveRecord: 4.2ms)

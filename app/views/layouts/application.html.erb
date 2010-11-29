@@ -7,6 +7,7 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <img src="/images/HappyPets_logo.png" />
   <div id="user_nav">
     <% if current_user %>
       <%= link_to "Edit Profile", edit_user_path(:current) %>
@@ -17,7 +18,9 @@
     <% end %>
     <input type="text" id="searchbox" />
     <input type="button" value="Search" onclick="search();" />
-    <input type="button" value="Recommend" onclick="recommend();" align="right" />
+    <% if current_user %>
+      <input type="button" value="Recommend" onclick="recommend();" align="right" />
+    <% end %>
   </div>
 <%= yield %>
 

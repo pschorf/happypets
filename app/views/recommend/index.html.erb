@@ -1,0 +1,6 @@
+<h1>Recommendations</h1>
+<ul>
+  <% for pet in @matches.keys %>
+    <li>We recommend <a href="<%= pet_path(@matches[pet].id) %>"><%= @matches[pet].name %></a> for <a href="<%= pet_path(pet.id) %>"><%= pet.name %></a> 
+  <% end %>
+</ul>
