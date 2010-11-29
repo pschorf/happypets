@@ -54,3 +54,8 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+tr.unread td {
+	color: red;
+	font-weight: bold;
+}

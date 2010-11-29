@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   def to_s
     "#{name} (#{username})"
   end
+  
+  def unread_notifications
+    return (self.pets.map {|p| p.received_notifications.where(:read => false)}).flatten
+  end
 end

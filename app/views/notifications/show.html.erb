@@ -1,23 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Contents:</b>
   <%= @notification.contents %>
 </p>
 
 <p>
   <b>Source:</b>
-  <%= @notification.source %>
+  <%= link_to(@notification.source.name, pet_path(@notification.source)) %>
 </p>
 
 <p>
   <b>Destination:</b>
-  <%= @notification.destination %>
+  <%= link_to(@notification.destination.name, pet_path(@notification.destination)) %>
 </p>
 
 <p>
   <b>Time:</b>
-  <%= @notification.time %>
+  <%= @notification.time.localtime %>
 </p>
 
 <p>

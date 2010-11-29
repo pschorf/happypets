@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.xml
   def index
-    @notifications = Notification.all
+    @notifications = Notification.joins(:destination).where('pets.user_id' => current_user.id).order('notifications.read')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,10 @@ class NotificationsController < ApplicationController
   # GET /notifications/1.xml
   def show
     @notification = Notification.find(params[:id])
-
+    if @notification.destination.user == current_user
+      @notification.read = true
+      @notification.save
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @notification }
@@ -41,7 +44,8 @@ class NotificationsController < ApplicationController
   # POST /notifications.xml
   def create
     @notification = Notification.new(params[:notification])
-
+    @notification.time = Time.new
+    @notification.read = false
     respond_to do |format|
       if @notification.save
         format.html { redirect_to(@notification, :notice => 'Notification was successfully created.') }

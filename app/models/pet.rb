@@ -28,4 +28,8 @@ class Pet < ActiveRecord::Base
     self.interests.where("property='hobby'").map {|o| self.interests.delete o} 
     s.split(' ').map {|w| self.interests.create(:property => 'hobby', :thing => w)}
   end
+  
+  def received_notifications
+    return Notification.where(:destination_id => self)
+  end
 end

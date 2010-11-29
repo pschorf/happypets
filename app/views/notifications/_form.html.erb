@@ -17,19 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :source %><br />
-    <%= f.text_field :source %>
+    <%= collection_select(:notification, :source_id, current_user.pets, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :destination %><br />
-    <%= f.text_field :destination %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br />
-    <%= f.datetime_select :time %>
-  </div>
-  <div class="field">
-    <%= f.label :read %><br />
-    <%= f.check_box :read %>
+    <%= collection_select(:notification, :destination_id, Pet.where('user_id <> ?', current_user.id), :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

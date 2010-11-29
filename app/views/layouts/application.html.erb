@@ -13,6 +13,9 @@
     <% if current_user %>
       <%= link_to "Edit Profile", edit_user_path(:current) %>
       <%= link_to "Logout", logout_url %>
+      <% if current_user.unread_notifications.size > 0 %>
+        <%= link_to 'Unread Notifications', '/notifications' %>
+      <% end %>
     <% else %>
       <%= link_to "Register", new_user_path %>
       <%= link_to "Login", login_path %>
